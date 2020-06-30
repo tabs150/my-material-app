@@ -6,11 +6,20 @@ import theme from './theme';
 import { CssBaseline } from '@material-ui/core';
 // import GridPaper from './Samples/GridPaper';
 
+const sections = [
+  { title: 'Home', url: '#' },
+  { title: 'Store', url: '#' },
+  { title: 'IPhone', url: '#' },
+  { title: 'IPad', url: '#' },
+  { title: 'Macbook', url: '#' },
+  { title: 'Accessories', url: '#' },
+];
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header />
+      <Header title='BOUNCER' sections={sections} />
       <Home />
     </ThemeProvider>
   );

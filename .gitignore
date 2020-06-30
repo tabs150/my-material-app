@@ -11,8 +11,8 @@
 # production
 /build
 
-/Samples
-/Blog
+/src/Samples
+/src/Blog
 
 # misc
 .DS_Store

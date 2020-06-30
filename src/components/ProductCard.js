@@ -5,10 +5,10 @@ import macbook from '../images/macbookpro.jpg';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 260,
+    maxWidth: 230,
   },
   media: {
-    height: 120,
+    height: 110,
   },
 });
 
@@ -25,9 +25,7 @@ const ProductCard = () => {
         <Typography variant='h6' component='h2'>
           Apple MacBook Pro
         </Typography>
-        <Typography variant='h4' component='p'>
-          $499
-        </Typography>
+        <Typography component='p'>$495</Typography>
       </CardContent>
     </Card>
   );
