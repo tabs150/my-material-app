@@ -8,23 +8,25 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   toolbarBox: {
     width: '80%',
     margin: 'auto',
   },
+  toolbarNav: {
+    flex: 1,
+  },
   toolbar: {
+    justifyContent: 'space-between',
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbarTitle: {
     flex: 1,
   },
   toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto',
-    width: '60%',
-    margin: 'auto',
+    textAlign: 'center',
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -40,16 +42,7 @@ export default function Header(props) {
     <Box className={classes.toolbarBox}>
       <Toolbar className={classes.toolbar}>
         <Button size='small'>Subscribe</Button>
-        <Typography
-          component='h2'
-          variant='h5'
-          color='inherit'
-          align='center'
-          noWrap
-          className={classes.toolbarTitle}
-        >
-          {title}
-        </Typography>
+
         <IconButton>
           <SearchIcon />
         </IconButton>
@@ -62,18 +55,34 @@ export default function Header(props) {
         variant='dense'
         className={classes.toolbarSecondary}
       >
-        {sections.map((section) => (
-          <Link
-            color='inherit'
-            noWrap
-            key={section.title}
-            variant='body2'
-            href={section.url}
-            className={classes.toolbarLink}
-          >
-            {section.title}
-          </Link>
-        ))}
+        <Grid container>
+          <Grid item xs={12}>
+            <Typography
+              component='h2'
+              variant='h5'
+              color='inherit'
+              align='center'
+              noWrap
+              className={classes.toolbarTitle}
+            >
+              {title}
+            </Typography>
+          </Grid>
+          <Grid item className={classes.toolbarNav}>
+            {sections.map((section) => (
+              <Link
+                color='inherit'
+                noWrap
+                key={section.title}
+                variant='body2'
+                href={section.url}
+                className={classes.toolbarLink}
+              >
+                {section.title}
+              </Link>
+            ))}
+          </Grid>
+        </Grid>
       </Toolbar>
     </Box>
   );
