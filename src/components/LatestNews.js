@@ -24,6 +24,7 @@ const useStyles = makeStyles({
 export default function LatestNews(props) {
   const classes = useStyles();
   const { post } = props;
+  console.log(post.image);
 
   return (
     <Grid item xs={12} md={4}>

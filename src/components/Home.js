@@ -4,14 +4,16 @@ import ProductCard from './ProductCard';
 import LatestNews from './LatestNews';
 import Feature from './Feature';
 import Hero from './Hero';
+import Heroine from './Heroine';
 import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
+import macbook from '../images/macbookpro.jpg';
 
 const heroPost = {
   title: 'Title of a longer featured blog post',
   description:
     "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random',
+  image: macbook,
   imgText: 'main image description',
   linkText: 'Continue reading…',
 };
@@ -22,15 +24,15 @@ const featuredPosts = [
     date: 'Nov 15',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: 'https://source.unsplash.com/random',
+    image: macbook,
     imageText: 'Image Text',
   },
   {
-    title: 'Latest Newa',
+    title: 'Latest News',
     date: 'Nov 12',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: 'https://source.unsplash.com/random',
+    image: macbook,
     imageText: 'Image Text',
   },
   {
@@ -38,7 +40,7 @@ const featuredPosts = [
     date: 'Nov 11',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: 'https://source.unsplash.com/random',
+    image: macbook,
     imageText: 'Image Text',
   },
 ];
@@ -67,6 +69,7 @@ const Home = () => {
   return (
     <>
       <Hero post={heroPost} />
+
       <Typography
         component='h2'
         variant='h5'
@@ -77,6 +80,7 @@ const Home = () => {
       >
         Best Seller
       </Typography>
+
       <Grid container spacing={2} className={classes.grid}>
         <Grid item xs={6} sm={3}>
           <ProductCard />
@@ -103,6 +107,9 @@ const Home = () => {
           <ProductCard />
         </Grid>
       </Grid>
+
+      <Heroine post={heroPost} />
+
       <Grid container spacing={4}>
         <Grid item xs={12} sm={4}>
           <Feature title={features.title} description={features.description} />
@@ -120,6 +127,7 @@ const Home = () => {
           <LatestNews key={post.title} post={post} />
         ))}
       </Grid>
+
       <Footer
         title='Footer'
         description='Something here to give the footer a purpose!'

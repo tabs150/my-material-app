@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     height: '4rem',
     alignItems: 'center',
+    color: '#FF4252',
   },
   toolbarSecondary: {
     textAlign: 'center',

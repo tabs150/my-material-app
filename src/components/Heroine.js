@@ -10,13 +10,9 @@ const useStyles = makeStyles((theme) => ({
   heroPost: {
     position: 'relative',
     height: '60vh',
-    backgroundColor: theme.palette.red,
+    backgroundColor: '#2E90E5',
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundImage: 'linear-gradient(to right, #EC4D75, #A85ED9)',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
   },
   overlay: {
     position: 'absolute',
@@ -36,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function HeroPost(props) {
+export default function Heroine(props) {
   const classes = useStyles();
   const { post } = props;
 
@@ -75,6 +71,6 @@ export default function HeroPost(props) {
   );
 }
 
-HeroPost.propTypes = {
+Heroine.propTypes = {
   post: PropTypes.object,
 };
