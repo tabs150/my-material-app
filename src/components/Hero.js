@@ -9,7 +9,7 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles((theme) => ({
   heroPost: {
     position: 'relative',
-    backgroundColor: theme.palette.grey[800],
+    backgroundColor: theme.palette.red,
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
     backgroundSize: 'cover',

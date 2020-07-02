@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import ProductCard from './ProductCard';
 import Hero from './Hero';
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,6 +18,12 @@ const useStyles = makeStyles((theme) => ({
     width: '80%',
     margin: 'auto',
   },
+  sectionTitle: {
+    flex: 1,
+    height: '4rem',
+    alignItems: 'center',
+    textTransform: 'uppercase',
+  },
 }));
 
 const Home = () => {
@@ -25,29 +31,39 @@ const Home = () => {
   return (
     <>
       <Hero post={heroPost} />
+      <Typography
+        component='h2'
+        variant='h5'
+        color='inherit'
+        align='center'
+        noWrap
+        className={classes.sectionTitle}
+      >
+        Best Seller
+      </Typography>
       <Grid container spacing={2} className={classes.grid}>
-        <Grid item xs={6} sm={3} align='center'>
+        <Grid item xs={6} sm={3}>
           <ProductCard />
         </Grid>
-        <Grid item xs={6} sm={3} align='center'>
+        <Grid item xs={6} sm={3}>
           <ProductCard />
         </Grid>
-        <Grid item xs={6} sm={3} align='center'>
+        <Grid item xs={6} sm={3}>
           <ProductCard />
         </Grid>
-        <Grid item xs={6} sm={3} align='center'>
+        <Grid item xs={6} sm={3}>
           <ProductCard />
         </Grid>
-        <Grid item xs={6} sm={3} align='center'>
+        <Grid item xs={6} sm={3}>
           <ProductCard />
         </Grid>
-        <Grid item xs={6} sm={3} align='center'>
+        <Grid item xs={6} sm={3}>
           <ProductCard />
         </Grid>
-        <Grid item xs={6} sm={3} align='center'>
+        <Grid item xs={6} sm={3}>
           <ProductCard />
         </Grid>
-        <Grid item xs={6} sm={3} align='center'>
+        <Grid item xs={6} sm={3}>
           <ProductCard />
         </Grid>
       </Grid>

@@ -6,6 +6,11 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+import {
+  AccountCircleOutlined,
+  ShoppingBasketOutlined,
+} from '@material-ui/icons';
+
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { Grid } from '@material-ui/core';
@@ -17,13 +22,17 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarNav: {
     flex: 1,
+    padding: theme.spacing(2),
   },
   toolbar: {
-    justifyContent: 'space-between',
+    marginBottom: '2rem',
     borderBottom: `1px solid ${theme.palette.divider}`,
+    textTransform: 'uppercase',
   },
   toolbarTitle: {
     flex: 1,
+    height: '4rem',
+    alignItems: 'center',
   },
   toolbarSecondary: {
     textAlign: 'center',
@@ -42,14 +51,19 @@ export default function Header(props) {
   return (
     <Box className={classes.toolbarBox}>
       <Toolbar className={classes.toolbar}>
-        <Button size='small'>Subscribe</Button>
+        <Button size='small'>EN USD</Button>
 
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
-        <Button variant='outlined' size='small'>
-          Sign up
-        </Button>
+        <Box ml='auto'>
+          <IconButton size='small'>
+            <AccountCircleOutlined /> My Profile
+          </IconButton>
+          <IconButton size='small'>
+            <ShoppingBasketOutlined /> 0 items $0.00
+          </IconButton>
+          <IconButton>
+            <SearchIcon />
+          </IconButton>
+        </Box>
       </Toolbar>
       <Toolbar
         component='nav'
