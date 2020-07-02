@@ -1,7 +1,10 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import ProductCard from './ProductCard';
+import LatestNews from './LatestNews';
+import Feature from './Feature';
 import Hero from './Hero';
+import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
 
 const heroPost = {
@@ -11,6 +14,39 @@ const heroPost = {
   image: 'https://source.unsplash.com/random',
   imgText: 'main image description',
   linkText: 'Continue reading…',
+};
+
+const featuredPosts = [
+  {
+    title: 'Featured post',
+    date: 'Nov 15',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Latest Newa',
+    date: 'Nov 12',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+];
+
+const features = {
+  title: 'About',
+  description:
+    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.',
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -67,6 +103,27 @@ const Home = () => {
           <ProductCard />
         </Grid>
       </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12} sm={4}>
+          <Feature title={features.title} description={features.description} />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <Feature title={features.title} description={features.description} />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <Feature title={features.title} description={features.description} />
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={4}>
+        {featuredPosts.map((post) => (
+          <LatestNews key={post.title} post={post} />
+        ))}
+      </Grid>
+      <Footer
+        title='Footer'
+        description='Something here to give the footer a purpose!'
+      />
     </>
   );
 };
