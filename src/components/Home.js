@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import ProductCard from './ProductCard';
+import ProductBox from './ProductBox';
 import LatestNews from './LatestNews';
 import Feature from './Feature';
 import Hero from './Hero';
@@ -8,6 +9,7 @@ import Heroine from './Heroine';
 import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import macbook from '../images/macbookpro.jpg';
+import iphone from '../images/iPhone-5.png';
 
 const heroPost = {
   title: 'Title of a longer featured blog post',
@@ -44,6 +46,47 @@ const featuredPosts = [
     imageText: 'Image Text',
   },
 ];
+const topProducts = [
+  {
+    name: 'iPhone 6',
+    brand: 'Apple',
+    model: 'iPhone 6',
+    category: 'iphone',
+    type: 'smart-phone',
+    price: '399',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in.',
+    image: iphone,
+    imageText: 'Image Text',
+    bgColor: '#FF6875',
+  },
+  {
+    name: 'Oculus Rift',
+    brand: 'Oculus',
+    model: 'Rift 4',
+    category: 'accessories',
+    type: 'accessories',
+    price: '349',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in.',
+    image: macbook,
+    imageText: 'Image Text',
+    bgColor: '#F6F7F8',
+  },
+  {
+    name: 'GoPro 6',
+    brand: 'GoPro',
+    model: 'Hero 6',
+    category: 'Camera',
+    type: 'camera',
+    price: '299',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in.',
+    image: macbook,
+    imageText: 'Image Text',
+    bgColor: '#C1C8CE',
+  },
+];
 
 const features = {
   title: 'About',
@@ -62,6 +105,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     textTransform: 'uppercase',
   },
+  topProducts: {
+    width: '80%',
+    margin: '-100px auto auto',
+  },
 }));
 
 const Home = () => {
@@ -69,6 +116,12 @@ const Home = () => {
   return (
     <>
       <Hero post={heroPost} />
+
+      <Grid container spacing={0} className={classes.topProducts}>
+        {topProducts.map((product) => (
+          <ProductBox key={product.name} product={product} />
+        ))}
+      </Grid>
 
       <Typography
         component='h2'
@@ -110,7 +163,7 @@ const Home = () => {
 
       <Heroine post={heroPost} />
 
-      <Grid container spacing={4}>
+      <Grid container spacing={4} className={classes.grid}>
         <Grid item xs={12} sm={4}>
           <Feature title={features.title} description={features.description} />
         </Grid>
@@ -122,7 +175,7 @@ const Home = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={4}>
+      <Grid container spacing={4} className={classes.grid}>
         {featuredPosts.map((post) => (
           <LatestNews key={post.title} post={post} />
         ))}

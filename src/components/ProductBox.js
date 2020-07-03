@@ -12,46 +12,48 @@ import Hidden from '@material-ui/core/Hidden';
 const useStyles = makeStyles({
   card: {
     display: 'flex',
+    border: 'none',
+    minHeight: '40vh',
   },
   cardDetails: {
     flex: 1,
   },
   cardMedia: {
-    width: 160,
+    width: '50%',
   },
 });
 
 export default function LatestNews(props) {
   const classes = useStyles();
-  const { post } = props;
-
+  const { product } = props;
+  const bgColor = product.bgColor;
   return (
     <Grid item xs={12} md={4}>
       <CardActionArea component='a' href='#'>
-        <Card className={classes.card}>
-          <Hidden xsDown>
-            <CardMedia
-              className={classes.cardMedia}
-              image={post.image}
-              title={post.imageTitle}
-            />
-          </Hidden>
+        <Card
+          className={classes.card}
+          style={{ backgroundColor: `${bgColor}` }}
+        >
           <div className={classes.cardDetails}>
             <CardContent>
-              <Typography variant='subtitle1' color='textSecondary'>
-                {post.date}
-              </Typography>
               <Typography component='h2' variant='h5'>
-                {post.title}
+                {product.name}
               </Typography>
               <Typography variant='subtitle1' paragraph>
-                {post.description}
+                {product.description}
               </Typography>
-              <Typography variant='subtitle1' color='primary'>
-                Continue reading...
+              <Typography component='h5' variant='h3'>
+                $ {product.price}
               </Typography>
             </CardContent>
           </div>
+          <Hidden xsDown>
+            <CardMedia
+              className={classes.cardMedia}
+              image={product.image}
+              title={product.imageTitle}
+            />
+          </Hidden>
         </Card>
       </CardActionArea>
     </Grid>

@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
   },
+  innerGrid: {
+    width: '80%',
+    margin: 'auto',
+  },
   overlay: {
     position: 'absolute',
     top: 0,
@@ -51,7 +55,7 @@ export default function HeroPost(props) {
         />
       }
       <div className={classes.overlay} />
-      <Grid container>
+      <Grid container className={classes.innerGrid}>
         <Grid item md={6}>
           <div className={classes.heroPostContent}>
             <Typography

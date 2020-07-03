@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
   },
+  innerGrid: {
+    width: '80%',
+    margin: 'auto',
+  },
   overlay: {
     position: 'absolute',
     top: 0,
@@ -47,7 +51,7 @@ export default function Heroine(props) {
         />
       }
       <div className={classes.overlay} />
-      <Grid container>
+      <Grid container className={classes.innerGrid}>
         <Grid item md={6}>
           <div className={classes.heroPostContent}>
             <Typography
