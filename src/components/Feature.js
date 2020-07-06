@@ -7,7 +7,9 @@ import { BookmarkBorderOutlined } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   featureBox: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
+    minHeight: '300px',
+    textAlign: 'center',
   },
 }));
 
@@ -16,7 +18,7 @@ export default function Feature(props) {
   const { description, title } = props;
 
   return (
-    <Paper elevation={0} className={classes.featureBox}>
+    <Paper className={classes.featureBox}>
       <IconButton>
         <BookmarkBorderOutlined />
       </IconButton>

@@ -163,7 +163,14 @@ const Home = () => {
 
       <Heroine post={heroPost} />
 
-      <Grid container spacing={4} className={classes.grid}>
+      <Grid
+        container
+        spacing={4}
+        className={classes.grid}
+        direction='row'
+        justify='center'
+        alignItems='center'
+      >
         <Grid item xs={12} sm={4}>
           <Feature title={features.title} description={features.description} />
         </Grid>
