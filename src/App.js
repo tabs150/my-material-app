@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './components/Home';
+// import Home from './components/Home';
 import Header from './components/Header';
-import { ThemeProvider } from '@material-ui/core/styles';
-import theme from './theme';
+
 import { CssBaseline } from '@material-ui/core';
+// import AltHead from './components/AltHead';
 // import GridPaper from './Samples/GridPaper';
 
 const sections = [
@@ -17,11 +17,10 @@ const sections = [
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <CssBaseline />
       <Header title='BOUNCER' sections={sections} />
-      <Home />
-    </ThemeProvider>
+    </>
   );
 }
 

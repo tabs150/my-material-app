@@ -27,12 +27,13 @@ export default function LatestNews(props) {
   const classes = useStyles();
   const { product } = props;
   const bgColor = product.bgColor;
+  const txtColor = product.color;
   return (
     <Grid item xs={12} md={4}>
       <CardActionArea component='a' href='#'>
         <Card
           className={classes.card}
-          style={{ backgroundColor: `${bgColor}` }}
+          style={{ backgroundColor: `${bgColor}`, color: `${txtColor}` }}
         >
           <div className={classes.cardDetails}>
             <CardContent>
@@ -61,5 +62,5 @@ export default function LatestNews(props) {
 }
 
 LatestNews.propTypes = {
-  post: PropTypes.object,
+  product: PropTypes.object,
 };

@@ -59,6 +59,7 @@ const topProducts = [
     image: iphone,
     imageText: 'Image Text',
     bgColor: '#FF6875',
+    color: '#ffffff',
   },
   {
     name: 'Oculus Rift',
@@ -72,6 +73,7 @@ const topProducts = [
     image: macbook,
     imageText: 'Image Text',
     bgColor: '#F6F7F8',
+    color: 'inherit',
   },
   {
     name: 'GoPro 6',
@@ -85,6 +87,7 @@ const topProducts = [
     image: macbook,
     imageText: 'Image Text',
     bgColor: '#C1C8CE',
+    color: 'inherit',
   },
 ];
 

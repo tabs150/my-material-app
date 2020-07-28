@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
@@ -16,6 +17,13 @@ import Link from '@material-ui/core/Link';
 import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+  grow: {
+    flexGrow: 1,
+  },
+  topBar: {
+    marginBottom: '2rem',
+    borderBottom: `1px solid ${theme.palette.divider}`,
+  },
   toolbarBox: {
     width: '80%',
     margin: 'auto',
@@ -24,23 +32,19 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     padding: theme.spacing(2),
   },
-  toolbar: {
-    marginBottom: '2rem',
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    textTransform: 'uppercase',
-  },
   toolbarTitle: {
     flex: 1,
     height: '4rem',
     alignItems: 'center',
     color: '#FF4252',
+    fontWeight: '700',
+    letterSpacing: '0.25em',
   },
   toolbarSecondary: {
     textAlign: 'center',
   },
   toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0,
+    padding: theme.spacing(5),
     textTransform: 'uppercase',
   },
 }));
@@ -50,57 +54,70 @@ export default function Header(props) {
   const { sections, title } = props;
 
   return (
-    <Box className={classes.toolbarBox}>
-      <Toolbar className={classes.toolbar}>
-        <Button size='small'>EN USD</Button>
-
-        <Box ml='auto'>
-          <IconButton size='small'>
-            <AccountCircleOutlined /> My Profile
-          </IconButton>
-          <IconButton size='small'>
-            <ShoppingBasketOutlined /> 0 items $0.00
-          </IconButton>
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
-        </Box>
-      </Toolbar>
-      <Toolbar
-        component='nav'
-        variant='dense'
-        className={classes.toolbarSecondary}
+    <>
+      <AppBar
+        position='static'
+        className={classes.topBar}
+        elevation={0}
+        color='transparent'
       >
-        <Grid container>
-          <Grid item xs={12}>
-            <Typography
-              component='h2'
-              variant='h5'
-              color='inherit'
-              align='center'
-              noWrap
-              className={classes.toolbarTitle}
-            >
-              {title}
-            </Typography>
-          </Grid>
-          <Grid item className={classes.toolbarNav}>
-            {sections.map((section) => (
-              <Link
+        <Toolbar variant='dense' className={classes.toolbarBox}>
+          <Button size='small'>EN USD</Button>
+
+          <Box ml='auto'>
+            <IconButton size='small'>
+              <AccountCircleOutlined />
+            </IconButton>
+            <Button size='small'>My Profile</Button>
+            <IconButton size='small'>
+              <ShoppingBasketOutlined />
+            </IconButton>
+            <Button size='small'>0 items</Button>
+            <Button size='small'>$0.00</Button>
+            <IconButton>
+              <SearchIcon />
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <Box className={classes.toolbarBox}>
+        <Toolbar
+          component='nav'
+          variant='dense'
+          className={classes.toolbarSecondary}
+        >
+          <Grid container>
+            <Grid item xs={12}>
+              <Typography
+                component='h1'
+                variant='h4'
                 color='inherit'
+                align='center'
                 noWrap
-                key={section.title}
-                variant='body2'
-                href={section.url}
-                className={classes.toolbarLink}
+                className={classes.toolbarTitle}
               >
-                {section.title}
-              </Link>
-            ))}
+                {title}
+              </Typography>
+            </Grid>
+            <Grid item className={classes.toolbarNav}>
+              {sections.map((section) => (
+                <Link
+                  color='inherit'
+                  noWrap
+                  key={section.title}
+                  variant='body1'
+                  href={section.url}
+                  className={classes.toolbarLink}
+                  gutterBottom
+                >
+                  {section.title}
+                </Link>
+              ))}
+            </Grid>
           </Grid>
-        </Grid>
-      </Toolbar>
-    </Box>
+        </Toolbar>
+      </Box>
+    </>
   );
 }
 

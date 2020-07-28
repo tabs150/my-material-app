@@ -9,11 +9,11 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles((theme) => ({
   heroPost: {
     position: 'relative',
-    height: '60vh',
+    height: '90vh',
     backgroundColor: theme.palette.red,
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundImage: 'linear-gradient(to right, #EC4D75, #A85ED9)',
+    backgroundImage: 'linear-gradient(45deg, #FF4858, #8F65FF)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -54,19 +54,19 @@ export default function HeroPost(props) {
           alt={post.imageText}
         />
       }
-      <div className={classes.overlay} />
+      <div />
       <Grid container className={classes.innerGrid}>
         <Grid item md={6}>
           <div className={classes.heroPostContent}>
             <Typography
               component='h1'
-              variant='h3'
+              variant='h4'
               color='inherit'
               gutterBottom
             >
               {post.title}
             </Typography>
-            <Typography variant='h5' color='inherit' paragraph>
+            <Typography variant='body1' color='inherit' paragraph>
               {post.description}
             </Typography>
             <Link variant='subtitle1' href='#'>
