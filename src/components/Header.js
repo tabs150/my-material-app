@@ -15,6 +15,9 @@ import {
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { Grid } from '@material-ui/core';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -47,11 +50,27 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(5),
     textTransform: 'uppercase',
   },
+  formControl: {
+    margin: theme.spacing(1),
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 export default function Header(props) {
   const classes = useStyles();
   const { sections, title } = props;
+  const [lang, setLang] = React.useState('English');
+  const [currency, setCurrency] = React.useState('USD');
+
+  const handleLangChange = (event) => {
+    setLang(event.target.value);
+  };
+
+  const handleCurrencyChange = (event) => {
+    setCurrency(event.target.value);
+  };
 
   return (
     <>
@@ -62,7 +81,32 @@ export default function Header(props) {
         color='transparent'
       >
         <Toolbar variant='dense' className={classes.toolbarBox}>
-          <Button size='small'>EN USD</Button>
+          <FormControl className={classes.formControl}>
+            <Select
+              labelId='demo-simple-select-label'
+              id='demo-simple-select'
+              value={lang}
+              onChange={handleLangChange}
+              disableUnderline
+            >
+              <MenuItem value={'English'}>EN</MenuItem>
+              <MenuItem value={'French'}>FR</MenuItem>
+              <MenuItem value={'Spanish'}>ES</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl className={classes.formControl}>
+            <Select
+              labelId='demo-simple-select-Currency'
+              id='select-currency'
+              value={currency}
+              onChange={handleCurrencyChange}
+              disableUnderline
+            >
+              <MenuItem value={'USD'}>USD</MenuItem>
+              <MenuItem value={'GBP'}>GBP</MenuItem>
+              <MenuItem value={'EUR'}>EUR</MenuItem>
+            </Select>
+          </FormControl>
 
           <Box ml='auto'>
             <IconButton size='small'>
