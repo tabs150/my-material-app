@@ -15,6 +15,7 @@ import {
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { Grid } from '@material-ui/core';
+import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -63,6 +64,17 @@ export default function Header(props) {
   const { sections, title } = props;
   const [lang, setLang] = React.useState('English');
   const [currency, setCurrency] = React.useState('USD');
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const isMenuOpen = Boolean(anchorEl);
+
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleLangChange = (event) => {
     setLang(event.target.value);
@@ -71,6 +83,22 @@ export default function Header(props) {
   const handleCurrencyChange = (event) => {
     setCurrency(event.target.value);
   };
+
+  const menuId = 'primary-search-account-menu';
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+    </Menu>
+  );
 
   return (
     <>
@@ -109,7 +137,15 @@ export default function Header(props) {
           </FormControl>
 
           <Box ml='auto'>
-            <IconButton size='small'>
+            <IconButton
+              size='small'
+              edge='end'
+              aria-label='account of current user'
+              aria-controls={menuId}
+              aria-haspopup='true'
+              onClick={handleProfileMenuOpen}
+              color='inherit'
+            >
               <AccountCircleOutlined />
             </IconButton>
             <Button size='small'>My Profile</Button>
@@ -124,6 +160,7 @@ export default function Header(props) {
           </Box>
         </Toolbar>
       </AppBar>
+      {renderMenu}
       <Box className={classes.toolbarBox}>
         <Toolbar
           component='nav'
