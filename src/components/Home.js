@@ -1,11 +1,11 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import ProductCard from './ProductCard';
+// import ProductCard from './ProductCard';
 import ProductBox from './ProductBox';
 import LatestNews from './LatestNews';
-import Feature from './Feature';
+// import Feature from './Feature';
 import Hero from './Hero';
-import Heroine from './Heroine';
+// import Heroine from './Heroine';
 import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import macbook from '../images/macbookpro.jpg';
@@ -91,11 +91,11 @@ const topProducts = [
   },
 ];
 
-const features = {
-  title: 'About',
-  description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.',
-};
+// const features = {
+//   title: 'About',
+//   description:
+//     'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.',
+// };
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -137,7 +137,7 @@ const Home = () => {
         Best Seller
       </Typography>
 
-      <Grid container spacing={2} className={classes.grid}>
+      {/* <Grid container spacing={2} className={classes.grid}>
         <Grid item xs={6} sm={3}>
           <ProductCard />
         </Grid>
@@ -183,7 +183,7 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <Feature title={features.title} description={features.description} />
         </Grid>
-      </Grid>
+      </Grid> */}
 
       <Grid container spacing={4} className={classes.grid}>
         {featuredPosts.map((post) => (

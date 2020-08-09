@@ -20,7 +20,13 @@ const useStyles = makeStyles((theme) => ({
   },
   innerGrid: {
     width: '80%',
+    height: '100%',
     margin: 'auto',
+    display: 'table',
+  },
+  tableCell: {
+    display: 'table-cell',
+    verticalAlign: 'middle',
   },
   overlay: {
     position: 'absolute',
@@ -56,7 +62,7 @@ export default function HeroPost(props) {
       }
       <div />
       <Grid container className={classes.innerGrid}>
-        <Grid item md={6}>
+        <Grid item className={classes.tableCell} md={6}>
           <div className={classes.heroPostContent}>
             <Typography
               component='h1'

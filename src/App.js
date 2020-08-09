@@ -4,7 +4,7 @@ import Header from './components/Header';
 
 import { CssBaseline } from '@material-ui/core';
 // import AltHead from './components/AltHead';
-// import GridPaper from './Samples/GridPaper';
+import Swipeable from './Samples/Swipeable';
 
 const sections = [
   { title: 'Home', url: '#' },
@@ -20,6 +20,7 @@ function App() {
     <>
       <CssBaseline />
       <Header title='BOUNCER' sections={sections} />
+      <Swipeable />
     </>
   );
 }
