@@ -4,7 +4,8 @@ import Header from './components/Header';
 
 import { CssBaseline } from '@material-ui/core';
 // import AltHead from './components/AltHead';
-import Swipeable from './Samples/Swipeable';
+// import Swipeable from './Samples/Swipeable';
+import BrainCarousel from './Samples/BrainCarousel';
 
 const sections = [
   { title: 'Home', url: '#' },
@@ -20,7 +21,7 @@ function App() {
     <>
       <CssBaseline />
       <Header title='BOUNCER' sections={sections} />
-      <Swipeable />
+      <BrainCarousel />
     </>
   );
 }
