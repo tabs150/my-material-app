@@ -3,9 +3,18 @@ import React from 'react';
 import Header from './components/Header';
 
 import { CssBaseline } from '@material-ui/core';
-// import AltHead from './components/AltHead';
+import ProductGrid from './components/ProductGrid';
 // import Swipeable from './Samples/Swipeable';
 import BrainCarousel from './Samples/BrainCarousel';
+// import { makeStyles } from '@material-ui/core/styles';
+
+// const useStyles = makeStyles((theme) => ({
+//   gridContainer: {
+//     display: 'flex',
+//     maxWidth: '80%',
+//     margin: 'auto',
+//   },
+// }));
 
 const sections = [
   { title: 'Home', url: '#' },
@@ -22,6 +31,7 @@ function App() {
       <CssBaseline />
       <Header title='BOUNCER' sections={sections} />
       <BrainCarousel />
+      <ProductGrid />
     </>
   );
 }
