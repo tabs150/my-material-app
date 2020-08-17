@@ -4,8 +4,8 @@ import Header from './components/Header';
 
 import { CssBaseline } from '@material-ui/core';
 import ProductGrid from './components/ProductGrid';
-// import Swipeable from './Samples/Swipeable';
-import BrainCarousel from './Samples/BrainCarousel';
+// import GridProf from './Samples/GridProf';
+// import BrainCarousel from './Samples/BrainCarousel';
 // import { makeStyles } from '@material-ui/core/styles';
 
 // const useStyles = makeStyles((theme) => ({
@@ -30,7 +30,7 @@ function App() {
     <>
       <CssBaseline />
       <Header title='BOUNCER' sections={sections} />
-      <BrainCarousel />
+      {/* <BrainCarousel /> */}
       <ProductGrid />
     </>
   );
