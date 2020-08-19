@@ -1,12 +1,11 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-// import ProductCard from './ProductCard';
+import ProductGrid from './ProductGrid';
 import ProductBox from './ProductBox';
 import LatestNews from './LatestNews';
-// import Feature from './Feature';
+import Feature from './Feature';
 import Hero from './Hero';
-// import Heroine from './Heroine';
-import Footer from './Footer';
+import Heroine from './Heroine';
 import { makeStyles } from '@material-ui/core/styles';
 import macbook from '../images/macbookpro.jpg';
 import iphone from '../images/iPhone-5.png';
@@ -91,11 +90,11 @@ const topProducts = [
   },
 ];
 
-// const features = {
-//   title: 'About',
-//   description:
-//     'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.',
-// };
+const features = {
+  title: 'About',
+  description:
+    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.',
+};
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -137,32 +136,7 @@ const Home = () => {
         Best Seller
       </Typography>
 
-      {/* <Grid container spacing={2} className={classes.grid}>
-        <Grid item xs={6} sm={3}>
-          <ProductCard />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <ProductCard />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <ProductCard />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <ProductCard />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <ProductCard />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <ProductCard />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <ProductCard />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <ProductCard />
-        </Grid>
-      </Grid>
+      <ProductGrid />
 
       <Heroine post={heroPost} />
 
@@ -183,18 +157,13 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <Feature title={features.title} description={features.description} />
         </Grid>
-      </Grid> */}
+      </Grid>
 
       <Grid container spacing={4} className={classes.grid}>
         {featuredPosts.map((post) => (
           <LatestNews key={post.title} post={post} />
         ))}
       </Grid>
-
-      <Footer
-        title='Footer'
-        description='Something here to give the footer a purpose!'
-      />
     </>
   );
 };

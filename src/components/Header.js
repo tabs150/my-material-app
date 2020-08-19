@@ -14,7 +14,7 @@ import {
 
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';

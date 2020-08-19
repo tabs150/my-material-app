@@ -44,7 +44,7 @@ export default function LatestNews(props) {
                 {product.description}
               </Typography>
               <Typography component='h5' variant='h3'>
-                $ {product.price}
+                R {product.price}
               </Typography>
             </CardContent>
           </div>
