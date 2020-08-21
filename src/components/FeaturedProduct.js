@@ -12,29 +12,30 @@ import Hidden from '@material-ui/core/Hidden';
 const useStyles = makeStyles({
   card: {
     display: 'flex',
-    border: 0,
-    minHeight: '40vh',
   },
   cardDetails: {
     flex: 1,
   },
   cardMedia: {
-    width: '50%',
+    width: 160,
   },
 });
 
-export default function LatestNews(props) {
+export default function FeaturedProduct(props) {
   const classes = useStyles();
   const { product } = props;
-  const bgColor = product.bgColor;
-  const txtColor = product.color;
+
   return (
     <Grid item xs={12} md={4}>
       <CardActionArea component='a' href='#'>
-        <Card
-          className={classes.card}
-          style={{ backgroundColor: `${bgColor}`, color: `${txtColor}` }}
-        >
+        <Card className={classes.card}>
+          <Hidden xsDown>
+            <CardMedia
+              className={classes.cardMedia}
+              image={product.image}
+              title={product.imageText}
+            />
+          </Hidden>
           <div className={classes.cardDetails}>
             <CardContent>
               <Typography component='h2' variant='h5'>
@@ -48,19 +49,12 @@ export default function LatestNews(props) {
               </Typography>
             </CardContent>
           </div>
-          <Hidden xsDown>
-            <CardMedia
-              className={classes.cardMedia}
-              image={product.image}
-              title={product.imageTitle}
-            />
-          </Hidden>
         </Card>
       </CardActionArea>
     </Grid>
   );
 }
 
-LatestNews.propTypes = {
+FeaturedProduct.propTypes = {
   product: PropTypes.object,
 };
