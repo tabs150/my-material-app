@@ -1,11 +1,12 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import ProductGrid from './ProductGrid';
-import ProductBox from './ProductBox';
+// import ProductBox from './ProductBox';
 import LatestNews from './LatestNews';
-import Feature from './Feature';
-import Heroic from './Heroic';
+// import Feature from './Feature';
+// import Heroic from './Heroic';
 import Heroine from './Heroine';
+import SearchBlock from './SearchBlock';
 import { makeStyles } from '@material-ui/core/styles';
 import macbook from '../images/macbookpro.jpg';
 import iphone from '../images/iPhone-5.png';
@@ -91,11 +92,11 @@ const topProducts = [
   },
 ];
 
-const features = {
-  title: 'About',
-  description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.',
-};
+// const features = {
+//   title: 'About',
+//   description:
+//     'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.',
+// };
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -103,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
   },
   section: {
-    padding: '70px 0',
+    padding: theme.spacing(8, 0),
   },
   sectionTitle: {
     flex: 1,
@@ -121,14 +122,14 @@ const Home = () => {
   const classes = useStyles();
   return (
     <>
-      <section className={classes.section}>
+      {/* <section className={classes.section}>
         <Heroic />
         <Grid container spacing={0} className={classes.topProducts}>
           {topProducts.map((product) => (
             <ProductBox key={product.name} product={product} />
           ))}
         </Grid>
-      </section>
+      </section> */}
 
       <section className={classes.section}>
         <Typography
@@ -148,7 +149,7 @@ const Home = () => {
       <section className={classes.section}>
         <Heroine post={heroPost} />
       </section>
-      <section className={classes.section}>
+      {/* <section className={classes.section}>
         <Grid
           container
           spacing={4}
@@ -176,7 +177,7 @@ const Home = () => {
             />
           </Grid>
         </Grid>
-      </section>
+      </section> */}
 
       <section className={classes.section}>
         <Grid container spacing={4} className={classes.grid}>
@@ -190,6 +191,13 @@ const Home = () => {
           {topProducts.map((product) => (
             <FeaturedProduct key={product.name} product={product} />
           ))}
+        </Grid>
+      </section>
+      <section className={classes.section}>
+        <Grid container spacing={4} justify='center' className={classes.grid}>
+          <Grid item xs={12} sm={10} md={8}>
+            <SearchBlock />
+          </Grid>
         </Grid>
       </section>
     </>

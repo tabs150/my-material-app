@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './components/Home';
 import Header from './components/Header';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import { CssBaseline } from '@material-ui/core';
 // import ProductGrid from './components/ProductGrid';
 // import GridProf from './Samples/GridProf';
@@ -32,7 +32,7 @@ function App() {
       <Header title='BOUNCER' sections={sections} />
       {/* <BrainCarousel /> */}
       <Home />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

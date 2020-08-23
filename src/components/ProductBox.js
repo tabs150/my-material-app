@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   card: {
     display: 'flex',
     border: 0,
-    minHeight: '40vh',
+    minHeight: '30vh',
   },
   cardDetails: {
     flex: 1,
