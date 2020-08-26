@@ -80,7 +80,7 @@ const topProducts = [
     name: 'GoPro 6',
     brand: 'GoPro',
     model: 'Hero 6',
-    category: 'Camera',
+    category: 'accessory',
     type: 'camera',
     price: '299',
     description:

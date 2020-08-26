@@ -12,16 +12,21 @@
     "@testing-library/user-event": "^7.1.2",
     "markdown-to-jsx": "^6.11.4",
     "material-auto-rotating-carousel": "^3.0.2",
+    "node-sass": "^4.14.1",
+    "normalize.css": "^8.0.1",
+    "preloadjs": "^1.0.1",
     "randomcolor": "^0.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-fa": "^5.0.0",
+    "react-pose": "^4.0.10",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-slick": "^0.27.10",
     "react-swipe-views": "^0.0.12",
     "react-swipeable-views": "^0.13.9",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "uuid": "^8.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
