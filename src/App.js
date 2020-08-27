@@ -7,6 +7,7 @@ import React from 'react';
 // import GridProf from './Samples/GridProf';
 // import Portfolio from './Samples/Portfolio';
 import ProductFilter from './components/ProductFilter';
+// import ProductGrid from './components/ProductGrid';
 // import { makeStyles } from '@material-ui/core/styles';
 // import GalleryFilter from './MyGalFilter/GalleryFilter';
 // import './MyGalFilter/App.scss';
@@ -33,9 +34,10 @@ function App() {
       {/* <CssBaseline /> */}
       {/* <Header title='BOUNCER' sections={sections} /> */}
       {/* <BrainCarousel /> */}
-      {/* <div className='App'> */}
       <ProductFilter />
-      {/* </div> */}
+      {/* <div className='App'>
+        <Portfolio />
+      </div> */}
       {/* <Home /> */}
       {/* <Footer /> */}
     </>
