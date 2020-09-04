@@ -1,15 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
+import HeroCarousel from './HeroCarousel';
 
 const useStyles = makeStyles((theme) => ({
   heroPost: {
-    position: 'relative',
-    height: '90vh',
+    height: '70vh',
     backgroundColor: theme.palette.red,
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
@@ -20,71 +18,34 @@ const useStyles = makeStyles((theme) => ({
   },
   innerGrid: {
     width: '80%',
-    height: '100%',
+    height: '80%',
     margin: 'auto',
-    display: 'table',
   },
   tableCell: {
     display: 'table-cell',
     verticalAlign: 'middle',
   },
   overlay: {
-    position: 'absolute',
     top: 0,
     bottom: 0,
     right: 0,
     left: 0,
     backgroundColor: 'rgba(0,0,0,.3)',
   },
-  heroPostContent: {
-    position: 'relative',
-    padding: theme.spacing(3),
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(6),
-      paddingRight: 0,
-    },
-  },
 }));
 
-export default function HeroPost(props) {
+export default function Hero(props) {
   const classes = useStyles();
-  const { post } = props;
-
+  const { heroposts } = props;
   return (
     <Paper className={classes.heroPost}>
-      {/* Increase the priority of the hero background image */}
-      {
-        <img
-          style={{ display: 'none' }}
-          src={post.image}
-          alt={post.imageText}
-        />
-      }
-      <div />
-      <Grid container className={classes.innerGrid}>
-        <Grid item className={classes.tableCell} md={6}>
-          <div className={classes.heroPostContent}>
-            <Typography
-              component='h1'
-              variant='h4'
-              color='inherit'
-              gutterBottom
-            >
-              {post.title}
-            </Typography>
-            <Typography variant='body1' color='inherit' paragraph>
-              {post.description}
-            </Typography>
-            <Link variant='subtitle1' href='#'>
-              {post.linkText}
-            </Link>
-          </div>
-        </Grid>
-      </Grid>
+      <Box className={classes.innerGrid}>
+        <HeroCarousel posts={heroposts} />
+      </Box>
     </Paper>
   );
 }
 
-HeroPost.propTypes = {
+Hero.propTypes = {
   post: PropTypes.object,
 };

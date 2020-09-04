@@ -50,7 +50,7 @@ export default function Heroine(props) {
         />
       }
       <div className={classes.overlay} />
-      <Grid container className={classes.innerGrid}>
+      <Grid container className={classes.innerGrid} alignItems='center'>
         <Grid item md={6}>
           <div className={classes.heroPostContent}>
             <Typography

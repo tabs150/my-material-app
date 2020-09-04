@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import macbook from '../images/macbook-pro.jpg';
-import iphone from '../images/iphone11.jpeg';
+import macbookAir from '../images/macbook-air.jpeg';
+import iphone from '../images/iphone-cat.jpg';
+// import iphone6 from '../images/iphone6.jpeg';
+import iphone6s from '../images/iphone6s.jpg';
+import iphoneX from '../images/iphone-x.jfif';
 import airpods from '../images/airpods.jpeg';
+import earpods from '../images/earpods.jpg';
+// import cables from '../images/cables.jpeg';
+// import ipad from '../images/ipad.jpg';
+import ipadAir from '../images/ipad-air.jpg';
+import ipad2 from '../images/ipad2.jpeg';
+import imac from '../images/iMac.jfif';
+// import imac2 from '../images/imac-back.jpg';
+// import imacMini from '../images/imac-mini.webp';
+import wlCharger from '../images/wireless-charger.webp';
+import kbdCombo from '../images/imac-keyboard-combo.jpg';
 import ProductCard from './ProductCard';
 
 const items = [
@@ -33,7 +47,7 @@ const items = [
     price: '349',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: macbook,
+    image: macbookAir,
     imageText: 'Image Text',
     bgColor: '#F6F7F8',
     color: 'inherit',
@@ -61,7 +75,7 @@ const items = [
     price: '399',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: iphone,
+    image: iphone6s,
     imageText: 'Image Text',
     bgColor: '#FF6875',
     color: '#ffffff',
@@ -89,7 +103,7 @@ const items = [
     price: '29',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: airpods,
+    image: earpods,
     imageText: 'Image Text',
     bgColor: '#C1C8CE',
     color: 'inherit',
@@ -97,41 +111,83 @@ const items = [
   {
     name: 'iPhone X',
     brand: 'Apple',
-    model: 'iPhone 6',
+    model: 'iPhone X',
     category: ['all', 'iphone', 'store'],
     type: 'smart-phone',
     price: '399',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: iphone,
+    image: iphoneX,
     imageText: 'Image Text',
     bgColor: '#FF6875',
     color: '#ffffff',
   },
   {
-    name: 'MacBook Air',
+    name: 'Ipad Air',
     brand: 'Apple',
-    model: 'MacBook Pro 4',
-    category: ['all', 'macbook', 'store'],
-    type: 'macbook',
+    model: 'Ipad Pro 4',
+    category: ['all', 'ipad', 'store'],
+    type: 'ipad',
     price: '349',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: macbook,
+    image: ipadAir,
     imageText: 'Image Text',
     bgColor: '#F6F7F8',
     color: 'inherit',
   },
   {
-    name: 'Earpods 2',
+    name: 'Wireless Charger',
     brand: 'Apple',
     model: 'Airpods 3',
     category: ['all', 'accessories'],
-    type: 'earphones',
+    type: 'wireless charger',
     price: '29',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: airpods,
+    image: wlCharger,
+    imageText: 'Image Text',
+    bgColor: '#C1C8CE',
+    color: 'inherit',
+  },
+  {
+    name: 'iPad X',
+    brand: 'Apple',
+    model: 'iPad 6',
+    category: ['all', 'ipad', 'store'],
+    type: 'smart-phone',
+    price: '399',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in.',
+    image: ipad2,
+    imageText: 'Image Text',
+    bgColor: '#FF6875',
+    color: '#ffffff',
+  },
+  {
+    name: 'iMac',
+    brand: 'Apple',
+    model: 'iMac Pro',
+    category: ['all', 'macbook', 'store'],
+    type: 'macbook',
+    price: '349',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in.',
+    image: imac,
+    imageText: 'Image Text',
+    bgColor: '#F6F7F8',
+    color: 'inherit',
+  },
+  {
+    name: 'Keyboard Combo',
+    brand: 'Apple',
+    model: 'Airpods 3',
+    category: ['all', 'accessories'],
+    type: 'keyboard',
+    price: '229',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in.',
+    image: kbdCombo,
     imageText: 'Image Text',
     bgColor: '#C1C8CE',
     color: 'inherit',
@@ -154,7 +210,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
   },
   section: {
-    padding: theme.spacing(8, 0),
+    padding: theme.spacing(3, 0),
   },
   sectionTitle: {
     flex: 1,
@@ -163,7 +219,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
   },
   toolbarLink: {
-    padding: theme.spacing(5),
+    padding: theme.spacing(2, 4),
     textTransform: 'uppercase',
   },
 }));
@@ -200,34 +256,38 @@ export default function ProductFilter() {
             Best Seller
           </Typography>
         </Grid>
-        <Grid item xs={12}>
-          <Link
-            noWrap
-            key={allCat}
-            active={(filter === allCat).toString()}
-            variant='body1'
-            href='/#'
-            className={classes.toolbarLink}
-            onClick={() => setFilter(allCat)}
-          >
-            {allCat}
-          </Link>
-          {categories.map((category) => (
+        <Grid item xs={12} className={classes.grid}>
+          <Box mx={10} py={5}>
             <Link
               noWrap
-              key={category.title}
-              active={(filter === category.title).toString()}
+              key={allCat}
+              active={(filter === allCat).toString()}
               variant='body1'
-              href={category.url}
+              href='/#product-filter'
               className={classes.toolbarLink}
-              onClick={() => setFilter(category.title)}
+              onClick={() => setFilter(allCat)}
+              gutterBottom
             >
-              {category.title}
+              {allCat}
             </Link>
-          ))}
+            {categories.map((category) => (
+              <Link
+                noWrap
+                key={category.title}
+                active={(filter === category.title).toString()}
+                variant='body1'
+                href={category.url}
+                className={classes.toolbarLink}
+                onClick={() => setFilter(category.title)}
+                gutterBottom
+              >
+                {category.title}
+              </Link>
+            ))}
+          </Box>
         </Grid>
       </Grid>
-      <Grid container className={classes.grid}>
+      <Grid container className={classes.grid} spacing={3}>
         {products.map((item) =>
           item.filtered === true ? (
             <Grid item key={item.name} xs={12} sm={4} md={3}>

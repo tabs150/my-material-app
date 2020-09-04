@@ -1,25 +1,46 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
-import ProductGrid from './ProductGrid';
-// import ProductBox from './ProductBox';
+import Grid from '@material-ui/core/Grid';
+import ProductBox from './ProductBox';
 import LatestNews from './LatestNews';
-// import Feature from './Feature';
-// import Heroic from './Heroic';
+import Feature from './Feature';
+import Hero from './Hero';
 import Heroine from './Heroine';
 import SearchBlock from './SearchBlock';
 import { makeStyles } from '@material-ui/core/styles';
-import macbook from '../images/macbookpro.jpg';
-import iphone from '../images/iPhone-5.png';
 import FeaturedProduct from './FeaturedProduct';
+import ProductFilter from './ProductFilter';
+import iphoneX from '../images/iphone-x.jfif';
+import ipad2 from '../images/ipad2.jpeg';
+import wlCharger from '../images/wireless-charger.webp';
+import macbook from '../images/macbookpro.jpg';
+import iphone from '../images/iphone-cat.jpg';
 
-const heroPost = {
-  title: 'Title of a longer featured blog post',
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: macbook,
-  imgText: 'main image description',
-  linkText: 'Continue reading…',
-};
+const heroPosts = [
+  {
+    title: 'The New Incredible Iphone X',
+    description:
+      "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    image: iphoneX,
+    imgText: 'main image description',
+    linkText: 'Continue reading…',
+  },
+  {
+    title: 'Super Dooper Product',
+    description:
+      "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    image: ipad2,
+    imgText: 'main image description',
+    linkText: 'Continue reading…',
+  },
+  {
+    title: 'Latest Gadget',
+    description:
+      "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    image: wlCharger,
+    imgText: 'main image description',
+    linkText: 'Continue reading…',
+  },
+];
 
 const featuredPosts = [
   {
@@ -27,7 +48,7 @@ const featuredPosts = [
     date: 'Nov 15',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: macbook,
+    image: iphoneX,
     imageText: 'Image Text',
   },
   {
@@ -35,7 +56,7 @@ const featuredPosts = [
     date: 'Nov 12',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: macbook,
+    image: ipad2,
     imageText: 'Image Text',
   },
   {
@@ -43,7 +64,7 @@ const featuredPosts = [
     date: 'Nov 11',
     description:
       'This is a wider card with supporting text below as a natural lead-in.',
-    image: macbook,
+    image: wlCharger,
     imageText: 'Image Text',
   },
 ];
@@ -92,11 +113,11 @@ const topProducts = [
   },
 ];
 
-// const features = {
-//   title: 'About',
-//   description:
-//     'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.',
-// };
+const features = {
+  title: 'About',
+  description:
+    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.',
+};
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -122,34 +143,23 @@ const Home = () => {
   const classes = useStyles();
   return (
     <>
-      {/* <section className={classes.section}>
-        <Heroic />
+      <section className={classes.section}>
+        <Hero heroposts={heroPosts} />
         <Grid container spacing={0} className={classes.topProducts}>
           {topProducts.map((product) => (
             <ProductBox key={product.name} product={product} />
           ))}
         </Grid>
-      </section> */}
+      </section>
 
-      <section className={classes.section}>
-        <Typography
-          component='h2'
-          variant='h5'
-          color='inherit'
-          align='center'
-          noWrap
-          className={classes.sectionTitle}
-        >
-          Best Seller
-        </Typography>
-
-        <ProductGrid />
+      <section id='product-filter' className={classes.section}>
+        <ProductFilter />
       </section>
 
       <section className={classes.section}>
-        <Heroine post={heroPost} />
+        <Heroine post={heroPosts[0]} />
       </section>
-      {/* <section className={classes.section}>
+      <section className={classes.section}>
         <Grid
           container
           spacing={4}
@@ -177,7 +187,7 @@ const Home = () => {
             />
           </Grid>
         </Grid>
-      </section> */}
+      </section>
 
       <section className={classes.section}>
         <Grid container spacing={4} className={classes.grid}>
