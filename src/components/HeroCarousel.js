@@ -42,7 +42,7 @@ export default function HeroCarousel(props) {
   return (
     <Carousel loop widgets={[CarouselArrows]}>
       {posts.map((post) => (
-        <div style={{ height: '100%' }}>
+        <div key={post.title} style={{ height: '100%' }}>
           <Grid
             container
             className={classes.innerGrid}

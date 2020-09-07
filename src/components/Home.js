@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import ProductBox from './ProductBox';
 import LatestNews from './LatestNews';
@@ -14,6 +15,7 @@ import ipad2 from '../images/ipad2.jpeg';
 import wlCharger from '../images/wireless-charger.webp';
 import macbook from '../images/macbookpro.jpg';
 import iphone from '../images/iphone-cat.jpg';
+import iphone5 from '../images/iPhone-5.png';
 
 const heroPosts = [
   {
@@ -46,24 +48,21 @@ const featuredPosts = [
   {
     title: 'Featured post',
     date: 'Nov 15',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in.',
+    description: 'This is a wider card',
     image: iphoneX,
     imageText: 'Image Text',
   },
   {
     title: 'Latest News',
     date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in.',
+    description: 'This is a wider card',
     image: ipad2,
     imageText: 'Image Text',
   },
   {
     title: 'Post title',
     date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in.',
+    description: 'This is a wider card',
     image: wlCharger,
     imageText: 'Image Text',
   },
@@ -76,8 +75,7 @@ const topProducts = [
     category: 'iphone',
     type: 'smart-phone',
     price: '399',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in.',
+    description: 'This is a wider card.',
     image: iphone,
     imageText: 'Image Text',
     bgColor: '#FF6875',
@@ -90,8 +88,7 @@ const topProducts = [
     category: 'accessories',
     type: 'accessories',
     price: '349',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in.',
+    description: 'This is a wider card.',
     image: macbook,
     imageText: 'Image Text',
     bgColor: '#F6F7F8',
@@ -104,14 +101,22 @@ const topProducts = [
     category: 'accessory',
     type: 'camera',
     price: '299',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in.',
+    description: 'This is a wider card.',
     image: macbook,
     imageText: 'Image Text',
     bgColor: '#C1C8CE',
     color: 'inherit',
   },
 ];
+
+const heroinePost = {
+  title: 'The New Incredible Iphone X',
+  description:
+    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+  image: iphone5,
+  imgText: 'main image description',
+  linkText: 'Continue reading…',
+};
 
 const features = {
   title: 'About',
@@ -134,7 +139,6 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
   },
   topProducts: {
-    width: '80%',
     margin: '-100px auto auto',
   },
 }));
@@ -145,11 +149,13 @@ const Home = () => {
     <>
       <section className={classes.section}>
         <Hero heroposts={heroPosts} />
-        <Grid container spacing={0} className={classes.topProducts}>
-          {topProducts.map((product) => (
-            <ProductBox key={product.name} product={product} />
-          ))}
-        </Grid>
+        <Container>
+          <Grid container spacing={0} className={classes.topProducts}>
+            {topProducts.map((product) => (
+              <ProductBox key={product.name} product={product} />
+            ))}
+          </Grid>
+        </Container>
       </section>
 
       <section id='product-filter' className={classes.section}>
@@ -157,58 +163,65 @@ const Home = () => {
       </section>
 
       <section className={classes.section}>
-        <Heroine post={heroPosts[0]} />
+        <Heroine post={heroinePost} />
       </section>
       <section className={classes.section}>
-        <Grid
-          container
-          spacing={4}
-          className={classes.grid}
-          direction='row'
-          justify='center'
-          alignItems='center'
-        >
-          <Grid item xs={12} sm={4}>
-            <Feature
-              title={features.title}
-              description={features.description}
-            />
+        <Container>
+          <Grid
+            container
+            spacing={4}
+            direction='row'
+            justify='center'
+            alignItems='center'
+          >
+            <Grid item xs={12} sm={4}>
+              <Feature
+                title={features.title}
+                description={features.description}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Feature
+                title={features.title}
+                description={features.description}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Feature
+                title={features.title}
+                description={features.description}
+              />
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <Feature
-              title={features.title}
-              description={features.description}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Feature
-              title={features.title}
-              description={features.description}
-            />
-          </Grid>
-        </Grid>
+        </Container>
       </section>
 
       <section className={classes.section}>
-        <Grid container spacing={4} className={classes.grid}>
-          {featuredPosts.map((post) => (
-            <LatestNews key={post.title} post={post} />
-          ))}
-        </Grid>
-      </section>
-      <section className={classes.section}>
-        <Grid container spacing={4} className={classes.grid}>
-          {topProducts.map((product) => (
-            <FeaturedProduct key={product.name} product={product} />
-          ))}
-        </Grid>
-      </section>
-      <section className={classes.section}>
-        <Grid container spacing={4} justify='center' className={classes.grid}>
-          <Grid item xs={12} sm={10} md={8}>
-            <SearchBlock />
+        <Container>
+          <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <LatestNews key={post.title} post={post} />
+            ))}
           </Grid>
-        </Grid>
+        </Container>
+      </section>
+      <section className={classes.section}>
+        <Container>
+          <Grid container spacing={4}>
+            {topProducts.map((product) => (
+              <FeaturedProduct key={product.name} product={product} />
+            ))}
+          </Grid>
+        </Container>
+      </section>
+      <section className={classes.section}>
+        <Container>
+          <Grid container spacing={4} justify='center'>
+            <Grid item xs={12} sm={10} md={8}>
+              <SearchBlock />
+            </Grid>
+          </Grid>
+        </Container>
       </section>
     </>
   );

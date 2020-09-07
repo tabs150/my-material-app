@@ -219,8 +219,11 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
   },
   toolbarLink: {
-    padding: theme.spacing(2, 4),
-    textTransform: 'uppercase',
+    padding: theme.spacing(2),
+  },
+  boxCenter: {
+    textAlign: 'center',
+    textTransform: 'capitalize',
   },
 }));
 
@@ -243,7 +246,7 @@ export default function ProductFilter() {
   }, [filter]);
   return (
     <Container>
-      <Grid container className={classes.grid}>
+      <Grid container>
         <Grid item xs={12}>
           <Typography
             component='h2'
@@ -256,8 +259,8 @@ export default function ProductFilter() {
             Best Seller
           </Typography>
         </Grid>
-        <Grid item xs={12} className={classes.grid}>
-          <Box mx={10} py={5}>
+        <Grid item xs={12}>
+          <Box py={5} className={classes.boxCenter}>
             <Link
               noWrap
               key={allCat}
@@ -276,10 +279,9 @@ export default function ProductFilter() {
                 key={category.title}
                 active={(filter === category.title).toString()}
                 variant='body1'
-                href={category.url}
+                href='/#product-filter'
                 className={classes.toolbarLink}
                 onClick={() => setFilter(category.title)}
-                gutterBottom
               >
                 {category.title}
               </Link>
@@ -287,7 +289,7 @@ export default function ProductFilter() {
           </Box>
         </Grid>
       </Grid>
-      <Grid container className={classes.grid} spacing={3}>
+      <Grid container spacing={6}>
         {products.map((item) =>
           item.filtered === true ? (
             <Grid item key={item.name} xs={12} sm={4} md={3}>

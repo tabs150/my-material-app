@@ -28,7 +28,7 @@ export default function LatestNews(props) {
   return (
     <Grid item xs={12} md={4}>
       <CardActionArea component='a' href='#'>
-        <Card className={classes.card}>
+        <Card elevation={0} className={classes.card}>
           <Hidden xsDown>
             <CardMedia
               className={classes.cardMedia}

@@ -5,14 +5,16 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   heroPost: {
     position: 'relative',
-    height: '60vh',
+    height: '70vh',
     backgroundColor: '#2E90E5',
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
+    overflowY: 'hidden',
   },
   innerGrid: {
     width: '80%',
@@ -33,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
   },
+  heroPostImage: {
+    position: 'relative',
+    top: '-100px',
+  },
 }));
 
 export default function Heroine(props) {
@@ -41,35 +47,36 @@ export default function Heroine(props) {
 
   return (
     <Paper className={classes.heroPost}>
-      {/* Increase the priority of the hero background image */}
-      {
-        <img
-          style={{ display: 'none' }}
-          src={post.image}
-          alt={post.imageText}
-        />
-      }
       <div className={classes.overlay} />
-      <Grid container className={classes.innerGrid} alignItems='center'>
-        <Grid item md={6}>
-          <div className={classes.heroPostContent}>
-            <Typography
-              component='h1'
-              variant='h3'
-              color='inherit'
-              gutterBottom
-            >
-              {post.title}
-            </Typography>
-            <Typography variant='h5' color='inherit' paragraph>
-              {post.description}
-            </Typography>
-            <Link variant='subtitle1' href='#'>
-              {post.linkText}
-            </Link>
-          </div>
+      <Container maxWidth='lg' mx='auto'>
+        <Grid container>
+          <Grid item md={6}>
+            <div className={classes.heroPostContent}>
+              <Typography
+                component='h1'
+                variant='h3'
+                color='inherit'
+                gutterBottom
+              >
+                {post.title}
+              </Typography>
+              <Typography variant='h5' color='inherit' paragraph>
+                {post.description}
+              </Typography>
+              <Link variant='subtitle1' href='#'>
+                {post.linkText}
+              </Link>
+            </div>
+          </Grid>
+          <Grid item md={6}>
+            <img
+              className={classes.heroPostImage}
+              src={post.image}
+              alt={post.imageText}
+            />
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
     </Paper>
   );
 }

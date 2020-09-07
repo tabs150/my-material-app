@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '300px',
     textAlign: 'center',
   },
+  featureIcon: {
+    fontSize: '4rem',
+    color: '#FF4252',
+  },
 }));
 
 export default function Feature(props) {
@@ -18,11 +22,11 @@ export default function Feature(props) {
   const { description, title } = props;
 
   return (
-    <Paper className={classes.featureBox}>
-      <IconButton>
-        <BookmarkBorderOutlined />
+    <Paper elevation={0} className={classes.featureBox}>
+      <IconButton className={classes.featureIcon}>
+        <BookmarkBorderOutlined fontSize='inherit' />
       </IconButton>
-      <Typography variant='h6' gutterBottom>
+      <Typography component='h2' variant='h5' gutterBottom>
         {title}
       </Typography>
       <Typography>{description}</Typography>
