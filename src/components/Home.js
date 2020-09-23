@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import ProductBox from './ProductBox';
 import LatestNews from './LatestNews';
 import Feature from './Feature';
@@ -74,10 +75,11 @@ const topProducts = [
     model: 'iPhone 6',
     category: 'iphone',
     type: 'smart-phone',
-    price: '399',
+    price: 399,
     description: 'This is a wider card.',
     image: iphone,
     imageText: 'Image Text',
+    rating: 4,
     bgColor: '#FF6875',
     color: '#ffffff',
   },
@@ -87,10 +89,11 @@ const topProducts = [
     model: 'Rift 4',
     category: 'accessories',
     type: 'accessories',
-    price: '349',
+    price: 349,
     description: 'This is a wider card.',
     image: macbook,
     imageText: 'Image Text',
+    rating: 4,
     bgColor: '#F6F7F8',
     color: 'inherit',
   },
@@ -100,10 +103,11 @@ const topProducts = [
     model: 'Hero 6',
     category: 'accessory',
     type: 'camera',
-    price: '299',
+    price: 299,
     description: 'This is a wider card.',
     image: macbook,
     imageText: 'Image Text',
+    rating: 5,
     bgColor: '#C1C8CE',
     color: 'inherit',
   },
@@ -198,19 +202,47 @@ const Home = () => {
 
       <section className={classes.section}>
         <Container>
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <LatestNews key={post.title} post={post} />
-            ))}
+          <Grid container>
+            <Grid item xs={12}>
+              <Typography
+                component='h2'
+                variant='h5'
+                color='inherit'
+                align='center'
+                noWrap
+                className={classes.sectionTitle}
+              >
+                Latest News
+              </Typography>
+            </Grid>
+            <Grid container spacing={4}>
+              {featuredPosts.map((post) => (
+                <LatestNews key={post.title} post={post} />
+              ))}
+            </Grid>
           </Grid>
         </Container>
       </section>
       <section className={classes.section}>
         <Container>
-          <Grid container spacing={4}>
-            {topProducts.map((product) => (
-              <FeaturedProduct key={product.name} product={product} />
-            ))}
+          <Grid container>
+            <Grid item xs={12}>
+              <Typography
+                component='h2'
+                variant='h5'
+                color='inherit'
+                align='center'
+                noWrap
+                className={classes.sectionTitle}
+              >
+                Featured Products
+              </Typography>
+            </Grid>
+            <Grid container spacing={4}>
+              {topProducts.map((product) => (
+                <FeaturedProduct key={product.name} product={product} />
+              ))}
+            </Grid>
           </Grid>
         </Container>
       </section>
