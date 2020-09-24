@@ -301,7 +301,7 @@ export default function ProductFilter() {
           </Box>
         </Grid>
       </Grid>
-      <Grid container spacing={6}>
+      <Grid container spacing={4}>
         {products.map((item) =>
           item.filtered === true ? (
             <Grid item key={item.name} xs={12} sm={4} md={3}>

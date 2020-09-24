@@ -82,8 +82,8 @@ function Copyright() {
   return (
     <Typography variant='body1'>
       {'Copyright © '}
-      <Link color='inherit' href='https://material-ui.com/'>
-        Your Website
+      <Link color='inherit' href='https://www.bisenbaev.com/'>
+        Ecommerce theme by www.bisenbaev.com
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
