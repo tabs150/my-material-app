@@ -1,23 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { CssBaseline } from '@material-ui/core';
-// import ProductGrid from './components/ProductGrid';
-// import GridProf from './Samples/GridProf';
-// import FrontEnd from './Samples/FrontEnd';
-// import ProductFilter from './components/ProductFilter';
-// import ProductGrid from './components/ProductGrid';
-// import { makeStyles } from '@material-ui/core/styles';
-// import GalleryFilter from './MyGalFilter/GalleryFilter';
-// import './MyGalFilter/App.scss';
-// const useStyles = makeStyles((theme) => ({
-//   gridContainer: {
-//     display: 'flex',
-//     maxWidth: '80%',
-//     margin: 'auto',
-//   },
-// }));
+import { products } from './store';
 
 const sections = [
   { title: 'Home', url: '#' },
@@ -29,16 +15,18 @@ const sections = [
 ];
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCart = (id) => {
+    const product = products.find((prod) => prod.id === id);
+    setCart([...cart, product]);
+  };
   return (
     <>
       <CssBaseline />
-      <Header title='BOUNCER' sections={sections} />
-      {/* <BrainCarousel /> */}
-      {/* <ProductFilter /> */}
+      <Header title='BOUNCER' sections={sections} cart={cart} />
 
-      {/* <FrontEnd /> */}
-
-      <Home />
+      <Home onHandleAddToCart={handleAddToCart} />
       <Footer />
     </>
   );

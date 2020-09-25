@@ -59,9 +59,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header(props) {
+export default function Header({ sections, title, cart }) {
   const classes = useStyles();
-  const { sections, title } = props;
   const [lang, setLang] = React.useState('English');
   const [currency, setCurrency] = React.useState('USD');
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -82,6 +81,18 @@ export default function Header(props) {
 
   const handleCurrencyChange = (event) => {
     setCurrency(event.target.value);
+  };
+
+  const handleCartTotals = (cart) => {
+    console.log('cart', cart);
+    // const totals = cart.reduce((total, product) => ({
+    //   price: total.price + product.price,
+    // }));
+    let total = 0;
+    cart.forEach((element) => {
+      total += element.price;
+    });
+    return total;
   };
 
   const menuId = 'primary-search-account-menu';
@@ -152,8 +163,10 @@ export default function Header(props) {
             <IconButton size='small'>
               <ShoppingBasketOutlined />
             </IconButton>
-            <Button size='small'>0 items</Button>
-            <Button size='small'>$0.00</Button>
+            <Button size='small'>{`${cart.length} items`}</Button>
+            <Button size='small'>
+              ${cart.length > 0 ? handleCartTotals(cart) : '0.00'}
+            </Button>
             <IconButton>
               <SearchIcon />
             </IconButton>

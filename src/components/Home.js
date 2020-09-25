@@ -147,8 +147,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = () => {
+const Home = ({ onHandleAddToCart }) => {
   const classes = useStyles();
+
   return (
     <>
       <section className={classes.section}>
@@ -163,7 +164,7 @@ const Home = () => {
       </section>
 
       <section id='product-filter' className={classes.section}>
-        <ProductFilter />
+        <ProductFilter addToCart={onHandleAddToCart} />
       </section>
 
       <section className={classes.section}>
