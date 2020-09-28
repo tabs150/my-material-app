@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
-import Home from './components/Home';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import { CssBaseline } from '@material-ui/core';
-import { products } from './store';
-
-const sections = [
-  { title: 'Home', url: '#' },
-  { title: 'Store', url: '#' },
-  { title: 'IPhone', url: '#' },
-  { title: 'IPad', url: '#' },
-  { title: 'Macbook', url: '#' },
-  { title: 'Accessories', url: '#' },
-];
+import Typography from '@material-ui/core/Typography';
+import Header from './components/Header';
+import Home from './components/Home';
+import Footer from './components/Footer';
+import Cart from './components/Cart';
+import { products, sections } from './store';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -21,12 +14,30 @@ function App() {
     const product = products.find((prod) => prod.id === id);
     setCart([...cart, product]);
   };
+
+  const handleRemoveFromCart = (id) => {
+    const filteredProducts = cart.filter((prod) => prod.id !== id);
+    setCart([filteredProducts]);
+  };
+
   return (
     <>
       <CssBaseline />
-      <Header title='BOUNCER' sections={sections} cart={cart} />
+      <Header
+        title='BOUNCER'
+        sections={sections}
+        cart={cart}
+        handleRemoveFromCart={handleRemoveFromCart}
+      />
 
       <Home onHandleAddToCart={handleAddToCart} />
+
+      {cart.length > 0 ? (
+        <Cart cart={cart} handleRemoveFromCart={handleRemoveFromCart} />
+      ) : (
+        <Typography component='h2'>Cart is empty</Typography>
+      )}
+
       <Footer />
     </>
   );

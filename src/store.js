@@ -205,3 +205,12 @@ export const products = [
     color: 'inherit',
   },
 ];
+
+export const sections = [
+  { title: 'Home', url: '#' },
+  { title: 'Store', url: '#' },
+  { title: 'IPhone', url: '#' },
+  { title: 'IPad', url: '#' },
+  { title: 'Macbook', url: '#' },
+  { title: 'Accessories', url: '#' },
+];

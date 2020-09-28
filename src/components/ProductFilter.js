@@ -105,7 +105,7 @@ export default function ProductFilter({ addToCart }) {
       <Grid container spacing={4}>
         {products.map((item) =>
           item.filtered === true ? (
-            <Grid item key={item.name} xs={12} sm={4} md={3}>
+            <Grid item key={item.id} xs={12} sm={4} md={3}>
               <ProductCard product={item} onAddToCart={addToCart} />
             </Grid>
           ) : (

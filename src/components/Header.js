@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -19,6 +19,11 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Cart from './Cart';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -59,11 +64,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header({ sections, title, cart }) {
+export default function Header({
+  sections,
+  title,
+  cart,
+  handleRemoveFromCart,
+}) {
   const classes = useStyles();
-  const [lang, setLang] = React.useState('English');
-  const [currency, setCurrency] = React.useState('USD');
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [lang, setLang] = useState('English');
+  const [currency, setCurrency] = useState('USD');
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const isMenuOpen = Boolean(anchorEl);
 
@@ -84,10 +103,6 @@ export default function Header({ sections, title, cart }) {
   };
 
   const handleCartTotals = (cart) => {
-    console.log('cart', cart);
-    // const totals = cart.reduce((total, product) => ({
-    //   price: total.price + product.price,
-    // }));
     let total = 0;
     cart.forEach((element) => {
       total += element.price;
@@ -109,6 +124,34 @@ export default function Header({ sections, title, cart }) {
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
+  );
+
+  const renderDialog = (
+    <div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
+      >
+        <DialogTitle id='alert-dialog-title'>{'Shopping Cart'}</DialogTitle>
+        <DialogContent>
+          {cart.length > 0 ? (
+            <Cart cart={cart} handleRemoveFromCart={handleRemoveFromCart} />
+          ) : (
+            <Typography component='h2'>Cart is empty</Typography>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color='primary'>
+            Disagree
+          </Button>
+          <Button onClick={handleClose} color='primary' autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
   );
 
   return (
@@ -163,7 +206,10 @@ export default function Header({ sections, title, cart }) {
             <IconButton size='small'>
               <ShoppingBasketOutlined />
             </IconButton>
-            <Button size='small'>{`${cart.length} items`}</Button>
+            <Button
+              size='small'
+              onClick={handleClickOpen}
+            >{`${cart.length} items`}</Button>
             <Button size='small'>
               ${cart.length > 0 ? handleCartTotals(cart) : '0.00'}
             </Button>
@@ -174,6 +220,7 @@ export default function Header({ sections, title, cart }) {
         </Toolbar>
       </AppBar>
       {renderMenu}
+      {renderDialog}
       <Box className={classes.toolbarBox}>
         <Toolbar
           component='nav'
